@@ -4,21 +4,21 @@
 /* ── IMAGENS ── */
 
 const CHAR_IMGS = {
-  "Scott McCall":"img/scott.jpg",
-  "Stiles Stilinski":"img/stiles.jpg",
-  "Lydia Martin":"img/lydia.jpg",
-  "Derek Hale":"img/derek.jpg",
-  "Allison Argent":"img/allison.jpg",
-  "Kira Yukimura":"img/kira.jpg",
-  "Liam Dunbar":"img/liam.jpg",
-  "Malia Tate":"img/malia.jpg"
+  "Scott McCall":"scott.jpg",
+  "Stiles Stilinski":"stiles.jpg",
+  "Lydia Martin":"lydia.jpg",
+  "Derek Hale":"derek.jpg",
+  "Allison Argent":"allison.jpg",
+  "Kira Yukimura":"kira.jpg",
+  "Liam Dunbar":"liam.jpg",
+  "Malia Tate":"malia.jpg"
 };
 
 const ACTOR_IMGS = {
-  "Tyler Posey":"img/tylerposey.jpg",
-  "Dylan O'Brien":"img/dylanobrien.jpg",
-  "Holland Roden":"img/hollandroden.jpg",
-  "Tyler Hoechlin":"img/tylerhoechlin.jpg"
+  "Tyler Posey":"tylerposey.jpg",
+  "Dylan O'Brien":"dylanobrien.jpg",
+  "Holland Roden":"hollandroden.jpg",
+  "Tyler Hoechlin":"tylerhoechlin.jpg"
 };
 
 /* ── DATA ── */
