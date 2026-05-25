@@ -22,19 +22,17 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <button class="hamburger" onclick="toggleMenu()"></button>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
     <div class="nav-logo"><span class="w">Teen</span><span>Wolf</span></div>
     <div class="nav-links">
       <a href="#home" class="active">Home</a>
       <a href="#serie">Série</a>
       <a href="#personagens">Personagens</a>
-      <a href="#bestiario">Bestiário</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#frases">Frases</a>
       <a href="#bastidores">Bastidores</a>
-      <a href="#teorias">Teorias</a>
-      <a href="#curiosidades">Curiosidades</a>
       <a href="quizzes.html">Quizzes</a>
+      <a href="#diario">Diário</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#curiosidades">Curiosidades</a>
       <a href="#contato">Contato</a>
     </div>
     <div class="nav-end">
@@ -46,13 +44,11 @@
   <a href="#home" onclick="cm()">Home</a>
   <a href="#serie" onclick="cm()">Série</a>
   <a href="#personagens" onclick="cm()">Personagens</a>
-  <a href="#bestiario" onclick="cm()">Bestiário</a>
-  <a href="#timeline" onclick="cm()">Timeline</a>
-  <a href="#frases" onclick="cm()">Frases</a>
   <a href="#bastidores" onclick="cm()">Bastidores</a>
-  <a href="#teorias" onclick="cm()">Teorias</a>
-  <a href="#curiosidades" onclick="cm()">Curiosidades</a>
   <a href="quizzes.html" onclick="cm()">Quizzes</a>
+  <a href="#diario" onclick="cm()">Diário</a>
+  <a href="#mapa" onclick="cm()">Mapa</a>
+  <a href="#curiosidades" onclick="cm()">Curiosidades</a>
   <a href="#contato" onclick="cm()">Contato</a>
 </div>
 
@@ -67,7 +63,7 @@
         <span class="outline">Teen</span> Wolf
         <span class="small">O lar dos sobrenaturais</span>
       </h1>
-      <p class="hero-desc">Mergulhe no universo de Beacon Hills — personagens, bestiário, quizzes, bastidores e muito mais aguardam por você.</p>
+      <p class="hero-desc">Mergulhe no universo de Beacon Hills — personagens, quizzes, bastidores e muito mais aguardam por você.</p>
       <div class="hero-cta">
         <a href="#serie" class="btn btn-f">Explorar a série</a>
         <a href="quizzes.html" class="btn btn-o">Fazer os quizzes</a>
@@ -90,6 +86,9 @@
     <h2 class="sh">Sobre a <em>Série</em></h2>
     <p class="sl">A história de Scott McCall, um adolescente comum que descobre o lado sobrenatural de Beacon Hills após ser mordido por um lobisomem.</p>
     <div class="cards4" id="aboutCards"></div>
+    <div class="eyebrow" style="margin-top:8px">Cronologia</div>
+    <h3 class="sh" style="font-size:1.7rem">Linha do <em>Tempo</em></h3>
+    <div class="tl" id="timeline"></div>
   </div>
 </section>
 
@@ -99,54 +98,7 @@
     <div class="eyebrow">Elenco</div>
     <h2 class="sh">Os <em>Personagens</em></h2>
     <p class="sl">Clique em qualquer personagem para expandir seu perfil completo.</p>
-    
-    <!-- FILTROS -->
-    <div class="char-filters">
-      <div class="filter-group">
-        <input type="text" class="char-search" id="charSearch" placeholder="🔍 Buscar personagem…" oninput="filterChars()"/>
-      </div>
-      <div class="filter-group">
-        <button class="filter-btn active" data-filter="todos" onclick="setFilter('todos',this)">Todos</button>
-        <button class="filter-btn" data-filter="Lobisomem" onclick="setFilter('Lobisomem',this)">Lobisomem</button>
-        <button class="filter-btn" data-filter="Banshee" onclick="setFilter('Banshee',this)">Banshee</button>
-        <button class="filter-btn" data-filter="Kitsune" onclick="setFilter('Kitsune',this)">Kitsune</button>
-        <button class="filter-btn" data-filter="Humano" onclick="setFilter('Humano',this)">Humano</button>
-        <button class="filter-btn" data-filter="Caçador" onclick="setFilter('Caçador',this)">Caçador</button>
-        <button class="filter-btn" data-filter="Werecoyote" onclick="setFilter('Werecoyote',this)">Werecoyote</button>
-      </div>
-    </div>
-
     <div class="char-grid" id="charGrid"></div>
-  </div>
-</section>
-
-<!-- BESTIÁRIO -->
-<section id="bestiario">
-  <div class="wrap">
-    <div class="eyebrow">Grimório Sobrenatural</div>
-    <h2 class="sh">Bestiário de <em>Beacon Hills</em></h2>
-    <p class="sl">Um compêndio das criaturas que habitam o universo de Teen Wolf, suas origens, poderes e fraquezas.</p>
-    <div class="bestiary-grid" id="bestiaryGrid"></div>
-  </div>
-</section>
-
-<!-- TIMELINE -->
-<section id="timeline">
-  <div class="wrap">
-    <div class="eyebrow">Cronologia</div>
-    <h2 class="sh">Linha do <em>Tempo</em></h2>
-    <p class="sl">Todos os eventos que moldaram o destino de Beacon Hills, temporada por temporada.</p>
-    <div class="tl-cinema" id="timelineMain"></div>
-  </div>
-</section>
-
-<!-- FRASES ICÔNICAS -->
-<section id="frases">
-  <div class="wrap">
-    <div class="eyebrow">Citações Imortais</div>
-    <h2 class="sh">Frases <em>Icônicas</em></h2>
-    <p class="sl">As palavras que definiram gerações de fãs — copie, compartilhe e leve com você.</p>
-    <div class="quotes-grid" id="quotesGrid"></div>
   </div>
 </section>
 
@@ -154,45 +106,19 @@
 <section id="bastidores">
   <div class="wrap">
     <div class="eyebrow">Behind the Scenes</div>
-    <h2 class="sh">Bastidores <em></em> Atores</h2>
+    <h2 class="sh">Bastidores <em>&amp;</em> Atores</h2>
     <p class="sl">Curiosidades, entrevistas e segredos das gravações que poucos fãs conhecem.</p>
     <div class="bast-grid" id="bastGrid"></div>
   </div>
 </section>
 
-<!-- TEORIAS & FANFICS -->
-<section id="teorias">
+<!-- DIÁRIO -->
+<section id="diario">
   <div class="wrap">
-    <div class="eyebrow">Comunidade Fandom</div>
-    <h2 class="sh">Teorias <em></em> Fanfics</h2>
-    <p class="sl">Explore as melhores teorias e histórias criadas pela comunidade. Vote, favorite e contribua.</p>
-
-    <div class="teorias-tabs" id="teoriasTabs">
-      <button class="teoria-tab active" data-tab="teorias" onclick="switchTeoriaTab('teorias',this)">🔍 Teorias</button>
-      <button class="teoria-tab" data-tab="ships" onclick="switchTeoriaTab('ships',this)">💙 Ships</button>
-      <button class="teoria-tab" data-tab="fanfics" onclick="switchTeoriaTab('fanfics',this)">📖 Fanfics</button>
-    </div>
-
-    <div id="teoriasContent"></div>
-  </div>
-</section>
-
-<!-- CURIOSIDADES -->
-<section id="curiosidades">
-  <div class="wrap">
-    <div class="eyebrow">Fun Facts</div>
-    <h2 class="sh">Curiosidades <em></em> Easter Eggs</h2>
-    <p class="sl">Detalhes que os criadores esconderam e que poucos fãs perceberam.</p>
-    <div class="fact-hero">
-      <div class="fact-label">Você Sabia?</div>
-      <div class="fact-num" id="factNum">Fato 1 / 12</div>
-      <div class="fact-text" id="factText">Carregando…</div>
-      <div class="fact-nav">
-        <button class="btn btn-o" style="padding:10px 20px" onclick="prevFact()">← Anterior</button>
-        <button class="btn btn-f" style="padding:10px 20px" onclick="nextFact()">Próxima →</button>
-      </div>
-    </div>
-    <div class="cards4" id="eggGrid"></div>
+    <div class="eyebrow">Registros Secretos</div>
+    <h2 class="sh">Diário de <em>Beacon Hills</em></h2>
+    <p class="sl">Anotações e relatos encontrados nos arquivos confidenciais da cidade.</p>
+    <div class="diary-feed" id="diaryFeed"></div>
   </div>
 </section>
 
@@ -221,14 +147,23 @@
     </div>
   </div>
 </section>
-  
-<!-- DIÁRIO -->
-<section id="diario">
+
+<!-- CURIOSIDADES -->
+<section id="curiosidades">
   <div class="wrap">
-    <div class="eyebrow">Registros Secretos</div>
-    <h2 class="sh">Diário de <em>Beacon Hills</em></h2>
-    <p class="sl">Anotações e relatos encontrados nos arquivos confidenciais da cidade.</p>
-    <div class="diary-feed" id="diaryFeed"></div>
+    <div class="eyebrow">Fun Facts</div>
+    <h2 class="sh">Curiosidades <em>&amp;</em> Easter Eggs</h2>
+    <p class="sl">Detalhes que os criadores esconderam e que poucos fãs perceberam.</p>
+    <div class="fact-hero">
+      <div class="fact-label">Você Sabia?</div>
+      <div class="fact-num" id="factNum">Fato 1 / 12</div>
+      <div class="fact-text" id="factText">Carregando…</div>
+      <div class="fact-nav">
+        <button class="btn btn-o" style="padding:10px 20px" onclick="prevFact()">Anterior</button>
+        <button class="btn btn-f" style="padding:10px 20px" onclick="nextFact()">Próxima</button>
+      </div>
+    </div>
+    <div class="cards4" id="eggGrid"></div>
   </div>
 </section>
 
@@ -308,4 +243,4 @@
   <img src="cursorwolf.png" class="cursor" id="cursor">
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
