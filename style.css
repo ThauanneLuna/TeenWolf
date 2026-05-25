@@ -518,6 +518,73 @@ hr.rule { border: none; border-top: 1px solid var(--line); margin: 60px 0; }
 .char-card.open .ch-detail { max-height: 300px; }
 .ch-detail-inner { border-top: 1px solid var(--line); padding: 14px 18px; margin-top: 14px; font-size: .88rem; color: var(--text2); line-height: 1.65; }
 
+/* EFEITO CINEMATOGRÁFICO */
+
+.ch-photo::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+    to top,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.15),
+    transparent
+  );
+  z-index:1;
+}
+
+.ch-photo img{
+  filter:
+  contrast(1.05)
+  saturate(1.05)
+  brightness(.92);
+}
+
+/* TEXOS SOBRE A IMAGEM */
+
+.char-card .ch-name,
+.char-card .ch-role,
+.char-card .ch-power{
+  position:relative;
+  z-index:2;
+}
+
+/* EFEITO HOVER */
+
+.char-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+  0 10px 35px rgba(0,0,0,.35),
+  0 0 18px rgba(255,70,85,.08);
+}
+
+/* BORDA GLOW */
+
+.char-card.open{
+  border-color:rgba(255,70,85,.25);
+  box-shadow:
+  0 0 25px rgba(255,70,85,.08);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:700px){
+
+  .char-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:520px){
+
+  .char-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
 /* ── BASTIDORES ── */
 .bast-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .bast-card {
