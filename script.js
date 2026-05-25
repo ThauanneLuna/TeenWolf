@@ -1,6 +1,26 @@
 /* ══════════════════════════════════════════
    TEEN WOLF FÃS — main.js
    ══════════════════════════════════════════ */
+/* ── IMAGENS ── */
+
+const CHAR_IMGS = {
+  "Scott McCall":"img/scott.jpg",
+  "Stiles Stilinski":"img/stiles.jpg",
+  "Lydia Martin":"img/lydia.jpg",
+  "Derek Hale":"img/derek.jpg",
+  "Allison Argent":"img/allison.jpg",
+  "Kira Yukimura":"img/kira.jpg",
+  "Liam Dunbar":"img/liam.jpg",
+  "Malia Tate":"img/malia.jpg"
+};
+
+const ACTOR_IMGS = {
+  "Tyler Posey":"img/tylerposey.jpg",
+  "Dylan O'Brien":"img/dylanobrien.jpg",
+  "Holland Roden":"img/hollandroden.jpg",
+  "Tyler Hoechlin":"img/tylerhoechlin.jpg"
+};
+
 /* ── DATA ── */
 const ABOUT = [
   {icon:'🎬',title:'A Série',body:'Teen Wolf é uma série americana de drama sobrenatural criada por Jeff Davis, baseada no filme de 1985. Exibida na MTV entre 2011 e 2017, com 6 temporadas e 100 episódios.',tag:'Drama Sobrenatural'},
