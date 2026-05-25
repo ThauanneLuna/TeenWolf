@@ -832,9 +832,11 @@ body {
   opacity: 1;
 }
 
-/* cursor refinado */
 .cursor {
-  border: 1px solid var(--ember);
-  border-radius: 50%;
-  transition: transform .1s ease;
-   }
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none; /* não bloqueia clique */
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
