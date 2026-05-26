@@ -965,4 +965,5 @@ function initPage() {
 if (document.readyState === 'complete') {
   if (document.getElementById('tcinCards')) buildTcinTimeline();
   if (document.getElementById('quotesGrid')) buildQuotes();
-};
+}
+window.onload = initPage;
