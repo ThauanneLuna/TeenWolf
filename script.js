@@ -546,3 +546,422 @@ function bindCursorHover(){
 
 /* Vincula após buildIndex popular o DOM */
 window.addEventListener('load', bindCursorHover);
+
+/* ══════════════════════════════════════════════════════════
+   COLE NO FINAL DO script.js
+   TIMELINE CINEMATOGRÁFICA + FRASES ICÔNICAS
+   ══════════════════════════════════════════════════════ */
+
+/* ── DATA: TIMELINE CINEMATOGRÁFICA ── */
+const TCIN_DATA = [
+  {
+    season: 'Temporada 1',
+    year: '2011',
+    emoji: '🌕',
+    gradStart: '#1a0a00',
+    gradEnd: '#2a1000',
+    title: 'A Mordida que Mudou Tudo',
+    threat: '⚠ Ameaça: O Alfa',
+    desc: 'Scott McCall é mordido na floresta por um lobisomem Alfa desconhecido. Em segundos, sua vida ordinária em Beacon Hills se transforma para sempre. Stiles, seu melhor amigo, mergulha junto no caos sobrenatural.',
+    chars: ['Scott McCall', 'Stiles Stilinski', 'Allison Argent', 'Derek Hale', 'Lydia Martin', 'O Alfa'],
+    highlight: '"Nenhum monstro nasce monstro — algo o transforma." A T1 estabelece o tom moral de toda a série.'
+  },
+  {
+    season: 'Temporada 2',
+    year: '2012',
+    emoji: '🐍',
+    gradStart: '#001a0a',
+    gradEnd: '#00150a',
+    title: 'O Kanima Desperta',
+    threat: '⚠ Ameaça: Kanima',
+    desc: 'Uma criatura serpentina com veneno paralisante aterroriza Beacon Hills. Jackson Whittemore descobre que sua transformação deu errado — ele não é um lobisomem, mas algo mais antigo e sombrio. Os segredos mortais da família Argent vêm à tona.',
+    chars: ['Scott', 'Stiles', 'Derek', 'Jackson', 'Allison', 'Gerard Argent'],
+    highlight: 'O Kanima só existe quando alguém não consegue aceitar a si mesmo — uma das metáforas mais ricas da série.'
+  },
+  {
+    season: 'Void Stiles',
+    year: '2013',
+    emoji: '👁',
+    gradStart: '#0a000a',
+    gradEnd: '#150015',
+    title: 'O Nogitsune Toma Controle',
+    threat: '⚠ Ameaça: Nogitsune',
+    desc: 'Um espírito demoníaco japonês — o Nogitsune — possui o corpo de Stiles. O único humano da matilha se torna a maior ameaça que Beacon Hills já enfrentou. Dylan O\'Brien entrega a performance mais aclamada de toda a série em cenas duplas memoráveis.',
+    chars: ['Stiles / Nogitsune', 'Scott', 'Lydia', 'Allison', 'Oni', 'Kira Yukimura'],
+    highlight: '"Chaos has come again." — A frase que define o arco mais sombrio e premiado da série, T3B.'
+  },
+  {
+    season: 'Temporada 4',
+    year: '2014',
+    emoji: '💀',
+    gradStart: '#1a1000',
+    gradEnd: '#150c00',
+    title: 'Deadpool — Preço por Cabeça',
+    threat: '⚠ Ameaça: O Deadpool',
+    desc: 'Uma lista cifrada de sobrenaturais com preços em dólares circula pela cidade. Kate Argent retorna transformada em Werejaguar. Berserkers astecas dominam o arsenal de La Iglesia. Dinheiro e vingança se tornam as maiores ameaças.',
+    chars: ['Scott', 'Derek', 'Liam Dunbar', 'Malia Tate', 'Kate Argent', 'Peter Hale'],
+    highlight: 'A T4 introduz Liam — o primeiro Beta transformado por Scott — e aprofunda o legado da família Hale.'
+  },
+  {
+    season: 'Dread Doctors',
+    year: '2015',
+    emoji: '⚗️',
+    gradStart: '#001015',
+    gradEnd: '#000d12',
+    title: 'Experimentos Proibidos',
+    threat: '⚠ Ameaça: Dread Doctors',
+    desc: 'Cientistas sobrenaturais com capacetes victorianos criam "quimeras" — humanos com DNA de duas criaturas implantado à força. A maioria não sobrevive ao processo. Theo Raeken infiltra a matilha para os Doutores, dividindo o grupo.',
+    chars: ['Scott', 'Stiles', 'Lydia', 'Liam', 'Theo Raeken', 'Dread Doctors'],
+    highlight: 'A divisão da matilha na T5 é considerada o arco mais tenso da série — a confiança entre os personagens chega ao limite.'
+  },
+  {
+    season: 'Ghost Riders',
+    year: '2016–17',
+    emoji: '🌪',
+    gradStart: '#050510',
+    gradEnd: '#08081a',
+    title: 'O Caçador Selvagem Apaga Stiles',
+    threat: '⚠ Ameaça: Wild Hunt',
+    desc: 'Os Ghost Riders da Wild Hunt apagam Stiles da realidade. Todos que o amavam esquecem que ele existiu. Scott, Lydia e Malia lutam contra memórias apagadas para salvar o melhor amigo que não conseguem lembrar. O retorno de Stiles é um dos momentos mais emocionantes da TV dos anos 2010.',
+    chars: ['Stiles', 'Scott', 'Lydia', 'Malia', 'Ghost Riders', 'Liam'],
+    highlight: '"Só me lembro de que havia algo — mas não consigo lembrar o quê." O esquecimento como horror psicológico.'
+  }
+];
+
+/* ── STATE TIMELINE ── */
+let tcinIdx = 0;
+
+/* ── INIT TIMELINE ── */
+function buildTcinTimeline() {
+  const container = document.getElementById('tcinCards');
+  const dots = document.getElementById('tcinDots');
+  if (!container || !dots) return;
+
+  container.innerHTML = TCIN_DATA.map((d, i) => `
+    <div class="tcin-card ${i === 0 ? 'active' : ''}" id="tcinCard${i}">
+      <div class="tcin-visual">
+        <div class="tcin-visual-bg" style="background:linear-gradient(135deg,${d.gradStart},${d.gradEnd})">
+          <span style="filter:drop-shadow(0 0 30px rgba(200,68,10,.4))">${d.emoji}</span>
+        </div>
+        <div class="tcin-visual-overlay">
+          <div class="tcin-season-label">${d.season}</div>
+          <div class="tcin-year">${d.year}</div>
+        </div>
+      </div>
+
+      <div class="tcin-info">
+        <div class="tcin-threat-badge">${d.threat}</div>
+        <h3 class="tcin-title">${d.title}</h3>
+        <p class="tcin-desc">${d.desc}</p>
+
+        <div>
+          <div class="tcin-chars-title">Personagens envolvidos</div>
+          <div class="tcin-chars-list">
+            ${d.chars.map(c => `<span class="tcin-char-chip">${c}</span>`).join('')}
+          </div>
+        </div>
+
+        <div class="tcin-highlight">${d.highlight}</div>
+      </div>
+    </div>
+  `).join('');
+
+  dots.innerHTML = TCIN_DATA.map((_, i) =>
+    `<div class="tcin-dot ${i === 0 ? 'active' : ''}" onclick="tcinGoTo(${i})"></div>`
+  ).join('');
+
+  tcinUpdateProgress();
+}
+
+function tcinUpdateProgress() {
+  const fill = document.getElementById('tcinFill');
+  if (fill) {
+    fill.style.width = ((tcinIdx / (TCIN_DATA.length - 1)) * 100) + '%';
+  }
+  document.querySelectorAll('.tcin-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === tcinIdx);
+  });
+  /* background dinâmico */
+  const bg = document.getElementById('tcinBg');
+  if (bg) {
+    const d = TCIN_DATA[tcinIdx];
+    bg.style.background = `radial-gradient(ellipse 60% 60% at 50% 40%, ${d.gradEnd}80, transparent 70%)`;
+  }
+}
+
+function tcinGoTo(idx) {
+  if (idx === tcinIdx) return;
+  const prev = document.getElementById('tcinCard' + tcinIdx);
+  const next = document.getElementById('tcinCard' + idx);
+  if (!prev || !next) return;
+
+  const goingRight = idx > tcinIdx;
+
+  prev.classList.remove('active');
+  prev.classList.add(goingRight ? 'exit-left' : 'exit-right');
+
+  next.style.transform = `translateX(${goingRight ? '60px' : '-60px'})`;
+  next.style.opacity = '0';
+  next.classList.add('active');
+
+  requestAnimationFrame(() => {
+    next.style.transition = 'opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1)';
+    next.style.transform = 'translateX(0)';
+    next.style.opacity = '1';
+  });
+
+  setTimeout(() => {
+    prev.classList.remove('exit-left', 'exit-right');
+    prev.style.transform = '';
+    prev.style.opacity = '';
+  }, 650);
+
+  tcinIdx = idx;
+  tcinUpdateProgress();
+}
+
+function tcinGo(dir) {
+  const next = (tcinIdx + dir + TCIN_DATA.length) % TCIN_DATA.length;
+  tcinGoTo(next);
+}
+
+/* teclado */
+document.addEventListener('keydown', e => {
+  const section = document.getElementById('timeline-cinema');
+  if (!section) return;
+  const rect = section.getBoundingClientRect();
+  const inView = rect.top < window.innerHeight && rect.bottom > 0;
+  if (!inView) return;
+  if (e.key === 'ArrowRight') tcinGo(1);
+  if (e.key === 'ArrowLeft')  tcinGo(-1);
+});
+
+/* ── DATA: FRASES ICÔNICAS ── */
+const QUOTES_DATA = [
+  {
+    en: 'We protect those who cannot protect themselves.',
+    pt: 'Protegemos aqueles que não conseguem se proteger.',
+    char: 'Allison',
+    season: 'Código dos Argent'
+  },
+  {
+    en: 'Be your own anchor.',
+    pt: 'Seja sua própria âncora.',
+    char: 'Derek',
+    season: 'Temporada 3'
+  },
+  {
+    en: 'Not all monsters do monstrous things.',
+    pt: 'Nem todos os monstros fazem coisas monstruosas.',
+    char: 'Lydia',
+    season: 'Temporada 3'
+  },
+  {
+    en: 'Chaos has come again.',
+    pt: 'O caos voltou.',
+    char: 'Stiles',
+    season: 'Void Stiles — T3B'
+  },
+  {
+    en: "I'm still figuring out this whole wolf thing.",
+    pt: 'Ainda estou descobrindo essa coisa toda de lobisomem.',
+    char: 'Scott',
+    season: 'Temporada 1'
+  },
+  {
+    en: 'Everyone has a story. This is yours.',
+    pt: 'Todo mundo tem uma história. Essa é a sua.',
+    char: 'Deaton',
+    season: 'Emissário'
+  },
+  {
+    en: "I'm the alpha. I'm always the alpha.",
+    pt: 'Sou o Alfa. Sempre serei o Alfa.',
+    char: 'Peter',
+    season: 'Temporada 1'
+  },
+  {
+    en: 'The only way you get through hell is to keep moving.',
+    pt: 'A única forma de atravessar o inferno é continuar em movimento.',
+    char: 'Stiles',
+    season: 'Temporada 5'
+  }
+];
+
+/* ── BUILD FRASES ── */
+function buildQuotes() {
+  const grid = document.getElementById('quotesGrid');
+  if (!grid) return;
+
+  grid.innerHTML = QUOTES_DATA.map((q, i) => `
+    <div class="quote-card" data-char="${q.char}" data-idx="${i}">
+      <div class="quote-mark">"</div>
+      <div class="quote-text-en">${q.en}</div>
+      <div class="quote-text-pt">${q.pt}</div>
+      <div class="quote-char">${q.char} &nbsp;·&nbsp; ${q.season}</div>
+      <div class="quote-actions">
+        <button class="quote-btn" onclick="copyQuote(${i}, this)" title="Copiar frase">
+          📋 Copiar
+        </button>
+        <button class="quote-btn" onclick="downloadQuote(${i})" title="Baixar como imagem">
+          ⬇ Imagem
+        </button>
+        <button class="quote-btn" onclick="shareQuote(${i})" title="Compartilhar">
+          ↗ Share
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  /* toast container */
+  if (!document.getElementById('quoteToast')) {
+    const toast = document.createElement('div');
+    toast.id = 'quoteToast';
+    toast.className = 'quote-toast';
+    document.body.appendChild(toast);
+  }
+
+  /* canvas oculto para download */
+  if (!document.getElementById('quoteCanvas')) {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'quoteCanvas';
+    document.body.appendChild(canvas);
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('quoteToast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function copyQuote(idx, btn) {
+  const q = QUOTES_DATA[idx];
+  const text = `"${q.en}"\n— ${q.char}, Teen Wolf\n\n"${q.pt}"`;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.textContent = '✓ Copiado';
+    showToast('Frase copiada! 🐺');
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = '📋 Copiar';
+    }, 2000);
+  }).catch(() => showToast('Erro ao copiar'));
+}
+
+function downloadQuote(idx) {
+  const q = QUOTES_DATA[idx];
+  const canvas = document.getElementById('quoteCanvas');
+  if (!canvas) return;
+
+  const W = 900, H = 500;
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  /* fundo */
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#0d0c0a');
+  bg.addColorStop(1, '#1c1510');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  /* borda ember */
+  ctx.strokeStyle = 'rgba(200,68,10,.4)';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(28, 28, W - 56, H - 56);
+
+  /* linha topo */
+  const lg = ctx.createLinearGradient(28, 28, W - 28, 28);
+  lg.addColorStop(0, '#c8440a');
+  lg.addColorStop(1, '#e8b860');
+  ctx.strokeStyle = lg;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(28, 28); ctx.lineTo(W - 28, 28);
+  ctx.stroke();
+
+  /* aspas grandes */
+  ctx.font = '900 140px Georgia, serif';
+  ctx.fillStyle = 'rgba(200,68,10,.12)';
+  ctx.fillText('"', 50, 170);
+
+  /* texto EN */
+  ctx.font = 'italic 700 32px Georgia, serif';
+  ctx.fillStyle = '#f0ead8';
+  ctx.textAlign = 'center';
+  wrapText(ctx, `"${q.en}"`, W / 2, 210, W - 140, 44);
+
+  /* texto PT */
+  ctx.font = 'italic 400 20px Georgia, serif';
+  ctx.fillStyle = '#6a6050';
+  ctx.textAlign = 'center';
+  wrapText(ctx, q.pt, W / 2, 340, W - 140, 30);
+
+  /* personagem */
+  ctx.font = '700 14px monospace';
+  ctx.fillStyle = '#c8440a';
+  ctx.textAlign = 'center';
+  ctx.fillText(`— ${q.char.toUpperCase()}  ·  ${q.season.toUpperCase()}  ·  TEEN WOLF`, W / 2, H - 55);
+
+  /* logo */
+  ctx.font = '400 11px monospace';
+  ctx.fillStyle = 'rgba(255,255,255,.15)';
+  ctx.fillText('BEACON HILLS — TEEN WOLF FÃS', W / 2, H - 32);
+
+  /* download */
+  const link = document.createElement('a');
+  link.download = `teenwolf-frase-${idx + 1}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  showToast('Imagem baixada! 🎬');
+}
+
+function wrapText(ctx, text, x, y, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '';
+  let curY = y;
+  words.forEach(word => {
+    const test = line + word + ' ';
+    if (ctx.measureText(test).width > maxW && line !== '') {
+      ctx.fillText(line, x, curY);
+      line = word + ' ';
+      curY += lineH;
+    } else {
+      line = test;
+    }
+  });
+  ctx.fillText(line, x, curY);
+}
+
+function shareQuote(idx) {
+  const q = QUOTES_DATA[idx];
+  const text = `"${q.en}" — ${q.char}, Teen Wolf`;
+  if (navigator.share) {
+    navigator.share({ title: 'Teen Wolf Fãs', text }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text);
+    showToast('Link copiado para compartilhar! 🐺');
+  }
+}
+
+/* ── INTEGRAR NO initPage ── */
+const _origInitPage = typeof initPage === 'function' ? initPage : null;
+
+function initPage() {
+  if (_origInitPage) _origInitPage();
+
+  /* timeline cinematográfica */
+  if (document.getElementById('tcinCards')) buildTcinTimeline();
+
+  /* frases */
+  if (document.getElementById('quotesGrid')) buildQuotes();
+}
+
+/* garantia: se já rodou, executa diretamente */
+if (document.readyState === 'complete') {
+  if (document.getElementById('tcinCards')) buildTcinTimeline();
+  if (document.getElementById('quotesGrid')) buildQuotes();
+}
