@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
@@ -28,12 +27,14 @@
       <a href="#home" class="active">Home</a>
       <a href="#serie">Série</a>
       <a href="#timeline-exp">Cronologia</a>
+      <a href="#timeline-cinema">Saga</a>
       <a href="#personagens">Personagens</a>
       <a href="#bastidores">Bastidores</a>
       <a href="quizzes.html">Quizzes</a>
       <a href="#diario">Diário</a>
       <a href="#mapa">Mapa</a>
       <a href="#curiosidades">Curiosidades</a>
+      <a href="#frases">Frases</a>
       <a href="#contato">Contato</a>
     </div>
     <div class="nav-end">
@@ -45,12 +46,14 @@
   <a href="#home" onclick="cm()">Home</a>
   <a href="#serie" onclick="cm()">Série</a>
   <a href="#timeline-exp" onclick="cm()">Cronologia</a>
+  <a href="#timeline-cinema" onclick="cm()">Saga</a>
   <a href="#personagens" onclick="cm()">Personagens</a>
   <a href="#bastidores" onclick="cm()">Bastidores</a>
   <a href="quizzes.html" onclick="cm()">Quizzes</a>
   <a href="#diario" onclick="cm()">Diário</a>
   <a href="#mapa" onclick="cm()">Mapa</a>
   <a href="#curiosidades" onclick="cm()">Curiosidades</a>
+  <a href="#frases" onclick="cm()">Frases</a>
   <a href="#contato" onclick="cm()">Contato</a>
 </div>
 
@@ -94,6 +97,15 @@
   </div>
 </section>
 
+<!-- TIMELINE SIMPLES -->
+<section id="timeline-exp">
+  <div class="wrap">
+    <div class="eyebrow">Cronologia</div>
+    <h2 class="sh">Linha do <em>Tempo</em></h2>
+    <p class="sl">Todos os eventos que moldaram o destino de Beacon Hills, temporada por temporada.</p>
+    <div class="tl-cinema" id="timelineMain"></div>
+  </div>
+</section>
 
 <!-- TIMELINE CINEMATOGRÁFICA -->
 <section id="timeline-cinema">
@@ -102,16 +114,14 @@
     <h2 class="sh">A Saga de <em>Beacon Hills</em></h2>
     <p class="sl">Cada arco que definiu a série — do primeiro uivo ao confronto final.</p>
   </div>
- 
+
   <div class="tcin-bg" id="tcinBg"></div>
- 
+
   <div class="tcin-track-wrap">
     <div class="tcin-progress-line">
       <div class="tcin-progress-fill" id="tcinFill"></div>
     </div>
- 
     <div class="tcin-cards" id="tcinCards"></div>
- 
     <div class="tcin-nav">
       <button class="tcin-btn" id="tcinPrev" onclick="tcinGo(-1)">&#8592;</button>
       <div class="tcin-dots" id="tcinDots"></div>
@@ -121,23 +131,12 @@
 </section>
 
 <!-- PERSONAGENS -->
-<!-- BUG CORRIGIDO: seção duplicada removida -->
 <section id="personagens">
   <div class="wrap">
     <div class="eyebrow">Elenco</div>
     <h2 class="sh">Os <em>Personagens</em></h2>
     <p class="sl">Clique em qualquer personagem para expandir seu perfil completo.</p>
     <div class="char-grid" id="charGrid"></div>
-  </div>
-</section>
-
-  <!-- FRASES ICÔNICAS -->
-<section id="frases">
-  <div class="wrap">
-    <div class="eyebrow">Palavras que marcaram</div>
-    <h2 class="sh">Frases <em>Icônicas</em></h2>
-    <p class="sl">As falas que definiram personagens, temporadas e uma geração inteira de fãs.</p>
-    <div class="quotes-grid" id="quotesGrid"></div>
   </div>
 </section>
 
@@ -206,55 +205,44 @@
   </div>
 </section>
 
+<!-- FRASES ICÔNICAS -->
+<section id="frases">
+  <div class="wrap">
+    <div class="eyebrow">Palavras que marcaram</div>
+    <h2 class="sh">Frases <em>Icônicas</em></h2>
+    <p class="sl">As falas que definiram personagens, temporadas e uma geração inteira de fãs.</p>
+    <div class="quotes-grid" id="quotesGrid"></div>
+  </div>
+</section>
+
 <!-- CONTATO -->
 <section id="contato">
   <div class="wrap">
     <div class="eyebrow">Comunidade</div>
     <h2 class="sh">Entre em <em>Contato</em></h2>
     <p class="sl">Siga as redes oficiais de Teen Wolf e continue conectado ao universo de Beacon Hills.</p>
-
     <div class="contact-grid">
-      <!-- redes -->
       <div>
         <div class="c-lbl">Redes sociais</div>
         <div class="c-social">
-
           <a href="https://instagram.com/mtvteenwolf" target="_blank" class="social-link">
             <span class="si">📸</span>
-            <div>
-              <div class="sn">Instagram</div>
-              <div class="sh2">@mtvteenwolf</div>
-            </div>
+            <div><div class="sn">Instagram</div><div class="sh2">@mtvteenwolf</div></div>
           </a>
-
           <a href="https://www.tiktok.com/@mtvteenwolf" target="_blank" class="social-link">
             <span class="si">🎵</span>
-            <div>
-              <div class="sn">TikTok</div>
-              <div class="sh2">@mtvteenwolf</div>
-            </div>
+            <div><div class="sn">TikTok</div><div class="sh2">@mtvteenwolf</div></div>
           </a>
-
           <a href="https://x.com/MTVteenwolf" target="_blank" class="social-link">
             <span class="si">🐦</span>
-            <div>
-              <div class="sn">Twitter (X)</div>
-              <div class="sh2">@MTVteenwolf</div>
-            </div>
+            <div><div class="sn">Twitter (X)</div><div class="sh2">@MTVteenwolf</div></div>
           </a>
-
           <a href="https://www.youtube.com/@MTV" target="_blank" class="social-link">
             <span class="si">▶️</span>
-            <div>
-              <div class="sn">YouTube</div>
-              <div class="sh2">MTV</div>
-            </div>
+            <div><div class="sn">YouTube</div><div class="sh2">MTV</div></div>
           </a>
-
         </div>
       </div>
-
-      <!-- lado reservado para formulário futuro -->
       <div></div>
     </div>
   </div>
@@ -265,7 +253,6 @@
   <p style="margin-top:7px;font-size:.52rem">Todos os direitos de Teen Wolf pertencem à MTV e Paramount Pictures</p>
 </footer>
 
-<!-- SPLASH HIDE -->
 <script>
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -274,8 +261,8 @@
   });
 </script>
 
-<!-- BUG CORRIGIDO: cursor agora só no HTML, controlado pelo JS -->
 <div class="cursor" id="cursor"></div>
+<canvas id="quoteCanvas" style="display:none"></canvas>
 
 <script src="script.js"></script>
 </body>
