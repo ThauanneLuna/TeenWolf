@@ -94,13 +94,29 @@
   </div>
 </section>
 
-<!-- TIMELINE -->
-<section id="timeline-exp">
+
+<!-- TIMELINE CINEMATOGRÁFICA -->
+<section id="timeline-cinema">
   <div class="wrap">
-    <div class="eyebrow">Cronologia</div>
-    <h2 class="sh">Linha do <em>Tempo</em></h2>
-    <p class="sl">Todos os eventos que moldaram o destino de Beacon Hills, temporada por temporada.</p>
-    <div class="tl-cinema" id="timelineMain"></div>
+    <div class="eyebrow">Cronologia Completa</div>
+    <h2 class="sh">A Saga de <em>Beacon Hills</em></h2>
+    <p class="sl">Cada arco que definiu a série — do primeiro uivo ao confronto final.</p>
+  </div>
+ 
+  <div class="tcin-bg" id="tcinBg"></div>
+ 
+  <div class="tcin-track-wrap">
+    <div class="tcin-progress-line">
+      <div class="tcin-progress-fill" id="tcinFill"></div>
+    </div>
+ 
+    <div class="tcin-cards" id="tcinCards"></div>
+ 
+    <div class="tcin-nav">
+      <button class="tcin-btn" id="tcinPrev" onclick="tcinGo(-1)">&#8592;</button>
+      <div class="tcin-dots" id="tcinDots"></div>
+      <button class="tcin-btn" id="tcinNext" onclick="tcinGo(1)">&#8594;</button>
+    </div>
   </div>
 </section>
 
@@ -112,6 +128,16 @@
     <h2 class="sh">Os <em>Personagens</em></h2>
     <p class="sl">Clique em qualquer personagem para expandir seu perfil completo.</p>
     <div class="char-grid" id="charGrid"></div>
+  </div>
+</section>
+
+  <!-- FRASES ICÔNICAS -->
+<section id="frases">
+  <div class="wrap">
+    <div class="eyebrow">Palavras que marcaram</div>
+    <h2 class="sh">Frases <em>Icônicas</em></h2>
+    <p class="sl">As falas que definiram personagens, temporadas e uma geração inteira de fãs.</p>
+    <div class="quotes-grid" id="quotesGrid"></div>
   </div>
 </section>
 
