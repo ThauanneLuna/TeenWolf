@@ -874,18 +874,6 @@ footer span { color: var(--ember); }
   .wrap       { padding: 48px 18px; }
 }
 
-body {
-  cursor: none; /* esconde o cursor real */
-}
-
-.cursor {
-  position: fixed;
-  width: 32px;
-  height: 32px;
-  pointer-events: none; /* não bloqueia clique */
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
 /* ══════════════════════════════════════════
    UPGRADE PREMIUM (ADICIONAR NO FINAL)
    ══════════════════════════════════════════ */
@@ -952,81 +940,124 @@ body {
   opacity: 1;
 }
 
-/* ══════════════════════════════════════════
+   /* ══════════════════════════════════════════
    CURSOR PERSONALIZADO — TEEN WOLF
 ═══════════════════════════════════════════ */
 
-/* Esconde cursor padrão */
-body{
-  cursor:none;
+/* DESKTOP */
+@media (min-width:769px){
+
+  /* esconde cursor padrão */
+  body{
+    cursor:none;
+  }
+
+  /* cursor principal */
+  .cursor{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:22px;
+    height:22px;
+
+    border:2px solid var(--ember);
+    border-radius:50%;
+
+    pointer-events:none;
+
+    transform:translate(-50%, -50%);
+
+    z-index:9999;
+
+    backdrop-filter:blur(2px);
+
+    transition:
+    width .18s ease,
+    height .18s ease,
+    background .2s ease,
+    border-color .2s ease,
+    box-shadow .25s ease;
+
+    box-shadow:
+    0 0 10px rgba(200,68,10,.35),
+    0 0 25px rgba(200,68,10,.15);
+  }
+
+  /* núcleo */
+  .cursor::before{
+    content:'';
+
+    position:absolute;
+
+    inset:5px;
+
+    border-radius:50%;
+
+    background:var(--ember);
+
+    box-shadow:
+    0 0 10px rgba(200,68,10,.55);
+  }
+
+  /* hover */
+  .cursor.active{
+
+    width:42px;
+    height:42px;
+
+    background:rgba(200,68,10,.08);
+
+    border-color:var(--gold);
+
+    box-shadow:
+    0 0 20px rgba(200,68,10,.45),
+    0 0 45px rgba(200,68,10,.2);
+  }
+
+  /* glow externo */
+  .cursor-follower{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    transform:translate(-50%, -50%);
+
+    z-index:9998;
+
+    background:
+    radial-gradient(
+      circle,
+      rgba(200,68,10,.12) 0%,
+      transparent 70%
+    );
+
+    filter:blur(2px);
+
+    opacity:.9;
+  }
+
 }
 
-/* Cursor principal */
-.cursor{
-  position:fixed;
-  width:22px;
-  height:22px;
-  border:2px solid var(--ember);
-  border-radius:50%;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:9999;
-  transition:
-  width .18s ease,
-  height .18s ease,
-  border-color .2s ease,
-  background .2s ease,
-  transform .08s linear;
+/* MOBILE */
+@media (max-width:768px){
 
-  backdrop-filter:blur(2px);
+  body{
+    cursor:auto;
+  }
 
-  box-shadow:
-  0 0 10px rgba(200,68,10,.35),
-  0 0 25px rgba(200,68,10,.15);
+  .cursor,
+  .cursor-follower{
+    display:none;
+  }
 }
-
-/* Ponto interno */
-.cursor::before{
-  content:'';
-  position:absolute;
-  inset:5px;
-  border-radius:50%;
-  background:var(--ember);
-
-  box-shadow:
-  0 0 10px rgba(200,68,10,.6);
-}
-
-/* Hover em links/botões */
-.cursor.active{
-  width:42px;
-  height:42px;
-
-  background:rgba(200,68,10,.08);
-
-  border-color:var(--gold);
-
-  box-shadow:
-  0 0 20px rgba(200,68,10,.5),
-  0 0 45px rgba(200,68,10,.2);
-}
-
-/* Glow suave seguindo o cursor */
-.cursor-follower{
-  position:fixed;
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9998;
-
-  background:
-  radial-gradient(
-    circle,
-    rgba(200,68,10,.12) 0%,
-    transparent 70%
-  );
-
-  transform:translate(-50%,-50%);
-  transition:transform .18s ease-out;
-   }
