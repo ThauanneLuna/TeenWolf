@@ -1,24 +1,24 @@
 /* ══════════════════════════════════════════
-   TEEN WOLF FÃS — main.js
+   TEEN WOLF FÃS — script.js  (CORRIGIDO)
    ══════════════════════════════════════════ */
-/* ── IMAGENS ── */
 
+/* ── IMAGENS ── */
 const CHAR_IMGS = {
-  "Scott McCall":"scott.jpg",
+  "Scott McCall":    "scott.jpg",
   "Stiles Stilinski":"stiles.jpg",
-  "Lydia Martin":"lydia.jpg",
-  "Derek Hale":"derek.jpg",
-  "Allison Argent":"allison.jpg",
-  "Kira Yukimura":"kira.jpg",
-  "Liam Dunbar":"liam.jpg",
-  "Malia Tate":"malia.jpg"
+  "Lydia Martin":    "lydia.jpg",
+  "Derek Hale":      "derek.jpg",
+  "Allison Argent":  "allison.jpg",
+  "Kira Yukimura":   "kira.jpg",
+  "Liam Dunbar":     "liam.jpg",
+  "Malia Tate":      "malia.jpg"
 };
 
 const ACTOR_IMGS = {
-  "Tyler Posey":"tylerposey.jpg",
-  "Dylan O'Brien":"dylanobrien.jpg",
-  "Holland Roden":"hollandroden.jpg",
-  "Tyler Hoechlin":"tylerhoechlin.jpg"
+  "Tyler Posey":    "tylerposey.jpg",
+  "Dylan O'Brien":  "dylanobrien.jpg",
+  "Holland Roden":  "hollandroden.jpg",
+  "Tyler Hoechlin": "tylerhoechlin.jpg"
 };
 
 /* ── DATA ── */
@@ -28,6 +28,7 @@ const ABOUT = [
   {icon:'🏙️',title:'Beacon Hills',body:'Cidade fictícia da Califórnia que atua como um nexo de energia sobrenatural, atraindo lobisomens, banshees, kitsunes, druidas e outras criaturas ao longo de séculos.',tag:'Nexo Sobrenatural'},
   {icon:'🏆',title:'Legado',body:'Em 2023, um longa-metragem de continuação foi lançado no Paramount+, reunindo parte do elenco original para um último confronto épico em Beacon Hills.',tag:'Teen Wolf: The Movie'}
 ];
+
 const TIMELINE = [
   {y:'2011',t:'Temporada 1 – A Mordida',p:'Scott é mordido por um Alfa desconhecido. Conheça Stiles, Lydia, Allison e Derek Hale. O terror do Alfa ameaça toda a cidade.'},
   {y:'2012',t:'Temporada 2 – O Kanima',p:'Uma criatura serpentina surge em Beacon Hills. Jackson Whittemore se transforma. Os segredos da família Argent são revelados.'},
@@ -37,6 +38,7 @@ const TIMELINE = [
   {y:'2016–17',t:'Temporada 6 – Caçador Selvagem',p:'Stiles é apagado da realidade. Na segunda parte, caçadores humanos modernos ameaçam todos os sobrenaturais da cidade.'},
   {y:'2023',t:'Teen Wolf: The Movie',p:'A Besta de Gévaudan retorna. O elenco original se reúne para um último e épico confronto que muda Beacon Hills para sempre.'}
 ];
+
 const CHARS = [
   {n:'Scott McCall',r:'Protagonista / Alfa Verdadeiro',av:'🐺',pw:'Lobisomem Alfa',d:'O primeiro Alfa Verdadeiro em séculos — conquistou o poder pelo caráter, não pela força ou violência. Sua empatia é tanto sua maior força quanto sua maior vulnerabilidade.'},
   {n:'Stiles Stilinski',r:'Melhor Amigo / Estrategista e Protagonista',av:'⚡',pw:'Inteligência Suprema',d:'O único humano da matilha por muito tempo. Seu intelecto e determinação salvaram Beacon Hills inúmeras vezes — geralmente antes que alguém soubesse do perigo.'},
@@ -47,6 +49,7 @@ const CHARS = [
   {n:'Liam Dunbar',r:'Beta de Scott',av:'💙',pw:'Berserker (IED)',d:'Primeiro membro transformado por Scott. Liam sofre de Transtorno Explosivo Intermitente, tornando o controle sobrenatural um desafio constante.'},
   {n:'Malia Tate',r:'Werecoyote',av:'🦡',pw:'Coyote Sobrenatural',d:'Passou anos como coiote após um acidente. Brutalmente honesta e instintiva, Malia luta para se readaptar ao mundo humano carregando enorme culpa.'}
 ];
+
 const BAST = [
   {n:'01',t:'Tyler Posey',actor:'Tyler Posey',p:'Interpreta Scott McCall. Foi o único ator a aparecer em todos os 100 episódios da série original, além do filme de 2023. Seu compromisso com o papel é lendário.',tag:'Scott McCall'},
   {n:'02',t:"Dylan O'Brien",actor:"Dylan O'Brien",p:'Vive o icônico Stiles Stilinski. Sofreu um grave acidente de set durante filmagens de Maze Runner em 2016, adiando a produção da T6. Seu retorno foi celebrado mundialmente.',tag:'Stiles Stilinski'},
@@ -55,20 +58,32 @@ const BAST = [
   {n:'05',t:'Locações Reais',actor:null,p:'A série foi filmada principalmente em Los Angeles. A "Beacon Hills High School" é a Portola Middle School em Tarzana, LA. A floresta foi rodada em Malibu Creek State Park.',tag:'Behind the Scenes'},
   {n:'06',t:'Trilha Sonora Icônica',actor:null,p:'Teen Wolf é famosa pela trilha alternativa. Músicas de Hozier, Daughter, Of Monsters and Men e Crystal Castles acompanharam cenas que marcaram gerações de fãs.',tag:'Soundtrack'}
 ];
-const GALLERY = [
-  {e:'🌕',l:'Lua Cheia',s:'Beacon Hills à noite'},{e:'🐺',l:'Transformação do Scott',s:'Fanart premiada'},
-  {e:'⚡',l:'Stiles & a Jeep Azul',s:'Cena icônica T1'},{e:'🏹',l:'Allison em Treino',s:'A melhor arqueira'},
-  {e:'🌑',l:'Olhos Azuis de Derek',s:'Arte de fã'},{e:'👸',l:'Lydia no Nemeton',s:'Banshee desperta'},
-  {e:'🦊',l:'Kira e o Kitsune',s:'Energia trovão'},{e:'🔥',l:'Incêndio Hale',s:'O passado sombrio'},
-  {e:'🌲',l:'O Nemeton',s:'Coração da floresta'},{e:'🎭',l:'Elenco nos Bastidores',s:'Making of T3'},
-  {e:'🏡',l:'Mansão Hale em Ruínas',s:'Símbolo da série'},{e:'🌊',l:'Derek & Scott no Rio',s:'Cena T2 icônica'}
+
+const EGGS = [
+  {icon:'🥚',title:'Número 218',body:'O quarto de hospital onde o pai de Stiles fica internado é o 218 — referência ao total de episódios do show de TV de lobisomens dos anos 80 que inspirou a série.'},
+  {icon:'🎨',title:'Cores dos Olhos',body:'Os olhos dos lobisomens codificam seu passado: amarelo = padrão; azul = matou um inocente; vermelho = Alfa. Um sistema visual criado pelo Jeff Davis e mantido rigorosamente.'},
+  {icon:'🌿',title:'O Triskelion Hale',body:'O símbolo da família Hale aparece discretamente em paredes, roupas e objetos durante toda a série, mesmo em cenas sem relação direta com a família.'},
+  {icon:'📚',title:'Pesquisa Mitológica Real',body:'O Nogitsune é baseado no Kitsune do folclore japonês. A equipe consultou textos originais em japonês e trabalhou com consultores culturais para representar a criatura com precisão.'}
 ];
-const THEORIES = [
-  {icon:'🔍',title:'O Verdadeiro Significado de "Beacon"',body:'Beacon Hills não é apenas um nome. A teoria mais aceita é que a cidade age como um farol de energia sobrenatural — o Nemeton é sua fonte — explicando por que tantas criaturas são atraídas para lá.',tag:'Lore'},
-  {icon:'🧩',title:'Stiles: O Verdadeiro Herói?',body:'Apesar de ser o único humano da matilha por anos, Stiles resolve os problemas que os lobisomens não conseguem. Sua inteligência salva mais vidas do que todos os poderes sobrenaturais juntos.',tag:'Análise'},
-  {icon:'🌑',title:'O Nemeton e o Nexo de Poder',body:'A árvore druídica sacrificial é o coração sobrenatural de Beacon Hills. Cada sacrifício a fortalece, e todo ritual mágico da cidade está conectado à sua energia ancestral.',tag:'Lore'},
-  {icon:'🎭',title:'Por que Derek "Envelhece" ao Contrário?',body:'Na T3, Derek rejuvenesce temporariamente. A teoria dos fãs é que a energia do Nemeton interage com o DNA Hale de forma única — os Hale nunca foram lobisomens comuns.',tag:'Teoria'}
+
+const DIARY = [
+  {who:'Scott McCall',av:'🐺',date:'Outubro, Ano 1',quote:'"Ser um lobisomem não é uma maldição. É parte de quem eu sou."',body:'Hoje entendi que não preciso escolher entre ser humano e sobrenatural. Posso ser os dois. Allison me ajudou a ver isso. A matilha está crescendo — e com ela, minha responsabilidade.'},
+  {who:'Stiles Stilinski',av:'⚡',date:'Novembro, Ano 3',quote:'"Às vezes ser o único humano é a maior vantagem do grupo."',body:'Enquanto todos confiam nos poderes, eu confio no meu cérebro. E hoje isso fez toda a diferença. Pesquisei o suficiente para encontrar a fraqueza do Nogitsune. Existe sempre uma solução.'},
+  {who:'Lydia Martin',av:'👸',date:'Setembro, Ano 2',quote:'"Eu ouvi algo que ninguém mais ouve. Alguém vai morrer esta noite."',body:'Os gritos não param. Não importa o que eu faça — eles voltam. A Sra. Morrell disse que o que sinto é um dom ancestral. Difícil enxergar assim quando o dom te acorda às 3h.'},
+  {who:'Derek Hale',av:'🌑',date:'Data desconhecida',quote:'"Confiar é um luxo que um lobisomem não pode se dar."',body:'A família Hale morreu por confiar nas pessoas erradas. Não vou cometer o mesmo erro. Mas Scott é diferente de tudo que já vi. Talvez eu precise confiar nele.'},
+  {who:'Allison Argent',av:'🏹',date:'Primavera, Ano 2',quote:'"Nascemos caçadores. Mas escolhemos o que caçamos."',body:'Minha família caça sobrenaturais há séculos. Mas aprendi que nem todo sobrenatural é monstro — e nem todo humano é inocente. O código precisa mudar. Eu vou mudá-lo.'}
 ];
+
+const MAP_PINS = [
+  {id:'school',l:'BHHS',x:50,y:28,c:'var(--ember)',t:'Beacon Hills High School',b:'O epicentro da vida social de Scott e Stiles. Filmada na Portola Middle School em Tarzana, LA. Palco de batalhas épicas, incluindo o ataque do Kanima na T2.'},
+  {id:'forest',l:'Floresta',x:22,y:52,c:'#5ecfa8',t:'Floresta de Beacon Hills',b:'Onde Scott foi mordido pelo Alfa na primeira noite. Esconde o Nemeton — a árvore druídica que serve como nexo de energia sobrenatural. Filmada em Malibu Creek State Park.'},
+  {id:'loft',l:'Loft Hale',x:72,y:42,c:'var(--wolf2)',t:'Loft de Derek Hale',b:'Apartamento industrial de Derek. Palco de reuniões da matilha, treinos e decisões estratégicas. Derek transformou Erica Reyes e Boyd aqui durante a T2.'},
+  {id:'hospital',l:'Hospital',x:62,y:66,c:'var(--ember)',t:'Beacon Hills Memorial',b:'O pai de Stiles foi internado várias vezes aqui. O hospital é frequentemente invadido por sobrenaturais — especialmente nas temporadas 2, 3 e 5.'},
+  {id:'nemeton',l:'Nemeton',x:32,y:74,c:'var(--gold2)',t:'O Nemeton — Árvore Sagrada',b:'A árvore druídica sacrificial no coração da floresta. Cada ritual mágico a fortalece. Scott, Stiles e Allison realizaram o sacrifício dos pais aqui na T3.'},
+  {id:'argent',l:'Casa Argent',x:80,y:22,c:'#e87870',t:'Residência Argent',b:'Base de operações da família de caçadores mais poderosa de Beacon Hills. O arsenal secreto no porão foi descoberto por Scott e Stiles na T1.'},
+  {id:'sheriff',l:'Delegacia',x:45,y:55,c:'#8ab0d8',t:'Delegacia do Xerife',b:'O escritório do pai de Stiles, Noah Stilinski. Palco de investigações sobrenaturais disfarçadas de crimes convencionais ao longo de toda a série.'}
+];
+
 const FACTS = [
   {n:'Fato 1 / 12',t:"Dylan O'Brien quase não foi escalado para Stiles. Jeff Davis passou meses em audições frustradas antes de encontrar o ator perfeito para o personagem que acabaria roubando a série."},
   {n:'Fato 2 / 12',t:'O nome completo de Stiles — Mieczysław Stilinski — é polonês e impronunciável. Isso foi mantido como piada recorrente pelo Jeff Davis ao longo de todas as 6 temporadas.'},
@@ -83,28 +98,7 @@ const FACTS = [
   {n:'Fato 11 / 12',t:'Beacon Hills foi parcialmente inspirada em cidades reais do norte da Califórnia. Jeff Davis cresceu perto de Sacramento e quis criar uma cidade americana "normal" com um segredo sobrenatural.'},
   {n:'Fato 12 / 12',t:'O filme Teen Wolf: The Movie (2023) foi desenvolvido por Jeff Davis como homenagem aos fãs que mantiveram a série viva por mais de uma década nas redes sociais.'}
 ];
-const EGGS = [
-  {icon:'🥚',title:'Número 218',body:'O quarto de hospital onde o pai de Stiles fica internado é o 218 — referência ao total de episódios do show de TV de lobisomens dos anos 80 que inspirou a série.'},
-  {icon:'🎨',title:'Cores dos Olhos',body:'Os olhos dos lobisomens codificam seu passado: amarelo = padrão; azul = matou um inocente; vermelho = Alfa. Um sistema visual criado pelo Jeff Davis e mantido rigorosamente.'},
-  {icon:'🌿',title:'O Triskelion Hale',body:'O símbolo da família Hale aparece discretamente em paredes, roupas e objetos durante toda a série, mesmo em cenas sem relação direta com a família.'},
-  {icon:'📚',title:'Pesquisa Mitológica Real',body:'O Nogitsune é baseado no Kitsune do folclore japonês. A equipe consultou textos originais em japonês e trabalhou com consultores culturais para representar a criatura com precisão.'}
-];
-const DIARY = [
-  {who:'Scott McCall',av:'🐺',date:'Outubro, Ano 1',quote:'"Ser um lobisomem não é uma maldição. É parte de quem eu sou."',body:'Hoje entendi que não preciso escolher entre ser humano e sobrenatural. Posso ser os dois. Allison me ajudou a ver isso. A matilha está crescendo — e com ela, minha responsabilidade.'},
-  {who:'Stiles Stilinski',av:'⚡',date:'Novembro, Ano 3',quote:'"Às vezes ser o único humano é a maior vantagem do grupo."',body:'Enquanto todos confiam nos poderes, eu confio no meu cérebro. E hoje isso fez toda a diferença. Pesquisei o suficiente para encontrar a fraqueza do Nogitsune. Existe sempre uma solução.'},
-  {who:'Lydia Martin',av:'👸',date:'Setembro, Ano 2',quote:'"Eu ouvi algo que ninguém mais ouve. Alguém vai morrer esta noite."',body:'Os gritos não param. Não importa o que eu faça — eles voltam. A Sra. Morrell disse que o que sinto é um dom ancestral. Difícil enxergar assim quando o dom te acorda às 3h.'},
-  {who:'Derek Hale',av:'🌑',date:'Data desconhecida',quote:'"Confiar é um luxo que um lobisomem não pode se dar."',body:'A família Hale morreu por confiar nas pessoas erradas. Não vou cometer o mesmo erro. Mas Scott é diferente de tudo que já vi. Talvez eu precise confiar nele.'},
-  {who:'Allison Argent',av:'🏹',date:'Primavera, Ano 2',quote:'"Nascemos caçadores. Mas escolhemos o que caçamos."',body:'Minha família caça sobrenaturais há séculos. Mas aprendi que nem todo sobrenatural é monstro — e nem todo humano é inocente. O código precisa mudar. Eu vou mudá-lo.'}
-];
-const MAP_PINS = [
-  {id:'school',l:'BHHS',x:50,y:28,c:'var(--ember)',t:'Beacon Hills High School',b:'O epicentro da vida social de Scott e Stiles. Filmada na Portola Middle School em Tarzana, LA. Palco de batalhas épicas, incluindo o ataque do Kanima na T2.'},
-  {id:'forest',l:'Floresta',x:22,y:52,c:'#5ecfa8',t:'Floresta de Beacon Hills',b:'Onde Scott foi mordido pelo Alfa na primeira noite. Esconde o Nemeton — a árvore druídica que serve como nexo de energia sobrenatural. Filmada em Malibu Creek State Park.'},
-  {id:'loft',l:'Loft Hale',x:72,y:42,c:'var(--wolf2)',t:'Loft de Derek Hale',b:'Apartamento industrial de Derek. Palco de reuniões da matilha, treinos e decisões estratégicas. Derek transformou Erica Reyes e Boyd aqui durante a T2.'},
-  {id:'hospital',l:'Hospital',x:62,y:66,c:'var(--ember)',t:'Beacon Hills Memorial',b:'O pai de Stiles foi internado várias vezes aqui. O hospital é frequentemente invadido por sobrenaturais — especialmente nas temporadas 2, 3 e 5.'},
-  {id:'nemeton',l:'Nemeton',x:32,y:74,c:'var(--gold2)',t:'O Nemeton — Árvore Sagrada',b:'A árvore druídica sacrificial no coração da floresta. Cada ritual mágico a fortalece. Scott, Stiles e Allison realizaram o sacrifício dos pais aqui na T3.'},
-  {id:'argent',l:'Casa Argent',x:80,y:22,c:'#e87870',t:'Residência Argent',b:'Base de operações da família de caçadores mais poderosa de Beacon Hills. O arsenal secreto no porão foi descoberto por Scott e Stiles na T1.'},
-  {id:'sheriff',l:'Delegacia',x:45,y:55,c:'#8ab0d8',t:'Delegacia do Xerife',b:'O escritório do pai de Stiles, Noah Stilinski. Palco de investigações sobrenaturais disfarçadas de crimes convencionais ao longo de toda a série.'}
-];
+
 const QUIZZES = {
   trivia:{title:'Trivia Completo',chip:'chip-h',chipLabel:'História Geral',qs:[
     {q:'Em qual temporada o Nogitsune aparece como antagonista principal?',hint:'Ele é um espírito kitsune japonês que possui um personagem central.',opts:['T2','T3A','T3B','T4'],ans:2,ex:'O Nogitsune aparece na T3B — considerada a melhor temporada da série pela crítica e pelos fãs. Seu arco com Stiles é um dos mais complexos já escritos para uma série da MTV.'},
@@ -211,30 +205,44 @@ function initPage() {
 
 /* ── INDEX BUILDERS ── */
 function buildIndex() {
-  buildAbout(); buildTimeline(); buildChars(); buildBast();
-  buildDiary(); buildMap(); buildGallery(); buildTheories();
-  buildEggs(); renderFact();
+  buildAbout();
+  buildTimeline();
+  buildChars();
+  buildBast();
+  buildDiary();
+  buildMap();
+  buildEggs();
+  renderFact();
   buildHeroGrid();
   window.addEventListener('scroll', navScroll);
 }
+
 function buildQuizPage() {
   window.addEventListener('scroll', navScroll);
 }
 
 function buildAbout(){
-  document.getElementById('aboutCards').innerHTML=ABOUT.map(c=>`
+  const el = document.getElementById('aboutCards');
+  if(!el) return;
+  el.innerHTML = ABOUT.map(c=>`
     <div class="card-item"><div class="ci-icon">${c.icon}</div>
     <h3>${c.title}</h3><p>${c.body}</p><span class="ci-tag">${c.tag}</span></div>`).join('');
 }
+
 function buildTimeline(){
-  document.getElementById('timeline').innerHTML=TIMELINE.map(i=>`
+  const el = document.getElementById('timeline');
+  if(!el) return;
+  el.innerHTML = TIMELINE.map(i=>`
     <div class="tl-item"><div class="tl-y">${i.y}</div><h4>${i.t}</h4><p>${i.p}</p></div>`).join('');
 }
+
 function buildChars(){
-  document.getElementById('charGrid').innerHTML=CHARS.map((c,i)=>{
-    const img=CHAR_IMGS[c.n];
+  const el = document.getElementById('charGrid');
+  if(!el) return;
+  el.innerHTML = CHARS.map((c,i)=>{
+    const img = CHAR_IMGS[c.n];
     return `<div class="char-card" onclick="toggleChar(${i})" id="cc${i}">
-      ${img?`<div class="ch-photo"><img src="${img}" alt="${c.n}"/></div>`:`<div class="ch-av">${c.av}</div>`}
+      ${img ? `<div class="ch-photo"><img src="${img}" alt="${c.n}"/></div>` : `<div class="ch-av">${c.av}</div>`}
       <div class="ch-name">${c.n}</div>
       <div class="ch-role">${c.r}</div>
       <span class="ch-power">${c.pw}</span>
@@ -242,19 +250,26 @@ function buildChars(){
     </div>`;
   }).join('');
 }
-function toggleChar(i){document.getElementById('cc'+i).classList.toggle('open');}
+
+function toggleChar(i){ document.getElementById('cc'+i).classList.toggle('open'); }
+
 function buildBast(){
-  document.getElementById('bastGrid').innerHTML=BAST.map(b=>{
-    const img=b.actor&&ACTOR_IMGS[b.actor];
+  const el = document.getElementById('bastGrid');
+  if(!el) return;
+  el.innerHTML = BAST.map(b=>{
+    const img = b.actor && ACTOR_IMGS[b.actor];
     return `<div class="bast-card">
-      ${img?`<div class="bast-photo"><img src="${img}" alt="${b.t}"/></div>`:''}
-      <div class="bast-info">${!img?`<div class="bast-num">${b.n}</div>`:''}
+      ${img ? `<div class="bast-photo"><img src="${img}" alt="${b.t}"/></div>` : ''}
+      <div class="bast-info">${!img ? `<div class="bast-num">${b.n}</div>` : ''}
       <h3>${b.t}</h3><p>${b.p}</p><span class="bast-tag">${b.tag}</span></div>
     </div>`;
   }).join('');
 }
+
 function buildDiary(){
-  document.getElementById('diaryFeed').innerHTML=DIARY.map(d=>`
+  const el = document.getElementById('diaryFeed');
+  if(!el) return;
+  el.innerHTML = DIARY.map(d=>`
     <div class="di-entry">
       <div class="di-meta"><div class="di-av">${d.av}</div>
       <div><div class="di-who">${d.who}</div><div class="di-date">${d.date}</div></div></div>
@@ -262,76 +277,88 @@ function buildDiary(){
       <div class="di-body">${d.body}</div>
     </div>`).join('');
 }
+
 function buildMap(){
-  document.getElementById('mapPins').innerHTML=MAP_PINS.map(p=>`
+  const el = document.getElementById('mapPins');
+  if(!el) return;
+  el.innerHTML = MAP_PINS.map(p=>`
     <div class="map-pin" style="left:${p.x}%;top:${p.y}%" onclick="showPopup('${p.id}',event)">
       <div class="pin-dot" style="color:${p.c};background:${p.c}33"></div>
       <div class="pin-label">${p.l}</div>
     </div>`).join('');
 }
-function showPopup(id,e){
-  const p=MAP_PINS.find(x=>x.id===id);
-  const popup=document.getElementById('mapPopup');
-  const rect=document.getElementById('mapArea').getBoundingClientRect();
-  const pinRect=e.currentTarget.getBoundingClientRect();
-  popup.style.left=(pinRect.left-rect.left)+'px';
-  popup.style.top=(pinRect.top-rect.top+20)+'px';
-  document.getElementById('popTitle').textContent=p.t;
-  document.getElementById('popBody').textContent=p.b;
+
+function showPopup(id, e){
+  const p = MAP_PINS.find(x => x.id === id);
+  const popup = document.getElementById('mapPopup');
+  const rect = document.getElementById('mapArea').getBoundingClientRect();
+  const pinRect = e.currentTarget.getBoundingClientRect();
+  popup.style.left = (pinRect.left - rect.left) + 'px';
+  popup.style.top  = (pinRect.top  - rect.top + 20) + 'px';
+  document.getElementById('popTitle').textContent = p.t;
+  document.getElementById('popBody').textContent  = p.b;
   popup.classList.add('show');
   e.stopPropagation();
 }
-function closePopup(){document.getElementById('mapPopup').classList.remove('show');}
-document.addEventListener('click',closePopup);
-function buildGallery(){
-  document.getElementById('galleryGrid').innerHTML=GALLERY.map(g=>`
-    <div class="gallery-item">${g.e}
-    <div class="gi-ov"><p>${g.l}</p><span>${g.s}</span></div></div>`).join('');
-}
-function buildTheories(){
-  document.getElementById('theoriesGrid').innerHTML=THEORIES.map(t=>`
-    <div class="card-item"><div class="ci-icon">${t.icon}</div>
-    <h3>${t.title}</h3><p>${t.body}</p><span class="ci-tag">${t.tag}</span></div>`).join('');
-}
+
+function closePopup(){ document.getElementById('mapPopup').classList.remove('show'); }
+document.addEventListener('click', closePopup);
+
+/* BUG CORRIGIDO: buildGallery e buildTheories removidas —
+   os elementos galleryGrid e theoriesGrid não existem no HTML */
+
 function buildEggs(){
-  document.getElementById('eggGrid').innerHTML=EGGS.map(e=>`
+  const el = document.getElementById('eggGrid');
+  if(!el) return;
+  el.innerHTML = EGGS.map(e=>`
     <div class="card-item"><div class="ci-icon">${e.icon}</div>
     <h3>${e.title}</h3><p>${e.body}</p></div>`).join('');
 }
+
 function renderFact(){
-  if(!document.getElementById('factNum')) return;
-  document.getElementById('factNum').textContent=FACTS[factIdx].n;
-  document.getElementById('factText').textContent=FACTS[factIdx].t;
+  const numEl  = document.getElementById('factNum');
+  const textEl = document.getElementById('factText');
+  if(!numEl || !textEl) return;
+  numEl.textContent  = FACTS[factIdx].n;
+  textEl.textContent = FACTS[factIdx].t;
 }
-function nextFact(){factIdx=(factIdx+1)%FACTS.length;renderFact();}
-function prevFact(){factIdx=(factIdx-1+FACTS.length)%FACTS.length;renderFact();}
+
+function nextFact(){ factIdx = (factIdx + 1) % FACTS.length; renderFact(); }
+function prevFact(){ factIdx = (factIdx - 1 + FACTS.length) % FACTS.length; renderFact(); }
+
 function buildHeroGrid(){
-  const gl=document.getElementById('hgl');
-  if(gl){for(let i=0;i<8;i++){const s=document.createElement('span');s.style.top=(i*14+4)+'%';gl.appendChild(s);}}
+  const gl = document.getElementById('hgl');
+  if(!gl) return;
+  for(let i = 0; i < 8; i++){
+    const s = document.createElement('span');
+    s.style.top = (i * 14 + 4) + '%';
+    gl.appendChild(s);
+  }
 }
 
 /* ── QUIZ ENGINE ── */
 function loadQuiz(type){
-  curQuiz=type; qIdx=0; score=0; answered=false;
-  charScores=[0,0,0,0]; charQ=0;
-  document.querySelectorAll('.qsb').forEach(b=>b.classList.remove('on'));
-  const btn=document.getElementById('btn-'+type);
+  curQuiz = type; qIdx = 0; score = 0; answered = false;
+  charScores = [0,0,0,0]; charQ = 0;
+  document.querySelectorAll('.qsb').forEach(b => b.classList.remove('on'));
+  const btn = document.getElementById('btn-'+type);
   if(btn) btn.classList.add('on');
-  if(type==='ranking'){renderRanking();return;}
-  if(type==='char'){renderCharQuiz();return;}
+  if(type === 'ranking'){ renderRanking(); return; }
+  if(type === 'char')   { renderCharQuiz(); return; }
   renderQuestion();
 }
+
 function renderQuestion(){
-  const m=document.getElementById('quizMain');
-  const qz=QUIZZES[curQuiz];
-  if(!qz||!qz.qs){m.innerHTML='<p style="color:var(--text2);padding:20px">Quiz indisponível.</p>';return;}
-  const total=qz.qs.length;
-  if(qIdx>=total){renderResult();return;}
-  const q=qz.qs[qIdx];
-  const labels=['A','B','C','D'];
-  const pct=Math.round((qIdx/total)*100);
-  answered=false;
-  m.innerHTML=`
+  const m  = document.getElementById('quizMain');
+  const qz = QUIZZES[curQuiz];
+  if(!qz || !qz.qs){ m.innerHTML='<p style="color:var(--text2);padding:20px">Quiz indisponível.</p>'; return; }
+  const total = qz.qs.length;
+  if(qIdx >= total){ renderResult(); return; }
+  const q = qz.qs[qIdx];
+  const labels = ['A','B','C','D'];
+  const pct = Math.round((qIdx / total) * 100);
+  answered = false;
+  m.innerHTML = `
     <div class="qz-top">
       <div class="qz-top-row">
         <span class="qz-step">Pergunta ${qIdx+1} de ${total}</span>
@@ -341,7 +368,7 @@ function renderQuestion(){
     </div>
     <span class="qz-chip ${qz.chip}">${qz.chipLabel}</span>
     <div class="qz-q">${q.q}</div>
-    ${q.hint?`<div class="qz-hint">💡 ${q.hint}</div>`:''}
+    ${q.hint ? `<div class="qz-hint">💡 ${q.hint}</div>` : ''}
     <div class="qz-opts">
       ${q.opts.map((o,i)=>`
         <button class="qz-opt" onclick="answerQ(${i})" id="opt${i}">
@@ -349,33 +376,36 @@ function renderQuestion(){
         </button>`).join('')}
     </div>
     <div class="qz-explain" id="qzExplain"><strong>Explicação:</strong> ${q.ex||''}</div>
-    <button class="qz-next" id="qzNext" onclick="nextQuestion()">${qIdx+1<total?'Próxima':'Ver Resultado'}</button>`;
+    <button class="qz-next" id="qzNext" onclick="nextQuestion()">${qIdx+1 < total ? 'Próxima' : 'Ver Resultado'}</button>`;
 }
+
 function answerQ(i){
   if(answered) return;
-  answered=true;
-  const q=QUIZZES[curQuiz].qs[qIdx];
-  document.querySelectorAll('.qz-opt').forEach(o=>o.disabled=true);
+  answered = true;
+  const q = QUIZZES[curQuiz].qs[qIdx];
+  document.querySelectorAll('.qz-opt').forEach(o => o.disabled = true);
   document.getElementById('opt'+q.ans).classList.add('correct');
-  if(i!==q.ans) document.getElementById('opt'+i).classList.add('wrong');
-  else score+=100;
+  if(i !== q.ans) document.getElementById('opt'+i).classList.add('wrong');
+  else score += 100;
   document.getElementById('qzExplain').classList.add('show');
   document.getElementById('qzNext').classList.add('show');
 }
+
 function nextQuestion(){
   qIdx++;
-  if(qIdx>=QUIZZES[curQuiz].qs.length) renderResult();
+  if(qIdx >= QUIZZES[curQuiz].qs.length) renderResult();
   else renderQuestion();
 }
+
 function renderResult(){
-  const total=QUIZZES[curQuiz].qs.length;
-  const pct=Math.round((score/(total*100))*100);
-  let title,msg;
-  if(pct>=90){title='Alfa Verdadeiro!';msg='Impressionante! Você conhece Teen Wolf melhor que a maioria do fandom.';}
-  else if(pct>=70){title='Membro da Matilha';msg='Ótimo resultado! Você claramente é um fã dedicado. Alguns detalhes escaparam, mas sua base é sólida.';}
-  else if(pct>=50){title='Beta em Formação';msg='Bom trabalho! Você conhece o básico da série, mas há ainda muito a descobrir.';}
-  else{title='Novato em Beacon Hills';msg='Não desanime — cada episódio assistido é um passo a mais. Reveja a série e tente novamente!';}
-  document.getElementById('quizMain').innerHTML=`
+  const total = QUIZZES[curQuiz].qs.length;
+  const pct = Math.round((score / (total * 100)) * 100);
+  let title, msg;
+  if(pct >= 90)     { title='Alfa Verdadeiro!';      msg='Impressionante! Você conhece Teen Wolf melhor que a maioria do fandom.'; }
+  else if(pct >= 70){ title='Membro da Matilha';     msg='Ótimo resultado! Você claramente é um fã dedicado. Alguns detalhes escaparam, mas sua base é sólida.'; }
+  else if(pct >= 50){ title='Beta em Formação';      msg='Bom trabalho! Você conhece o básico da série, mas há ainda muito a descobrir.'; }
+  else              { title='Novato em Beacon Hills'; msg='Não desanime — cada episódio assistido é um passo a mais. Reveja a série e tente novamente!'; }
+  document.getElementById('quizMain').innerHTML = `
     <div class="qz-result show">
       <div class="qz-ring"><div><div class="qz-rs">${pct}%</div><div class="qz-rt">Acertos</div></div></div>
       <div class="qz-rtitle">${title}</div>
@@ -394,11 +424,11 @@ function renderResult(){
 
 /* ── CHAR QUIZ ── */
 function renderCharQuiz(){
-  const qz=QUIZZES.char;
-  if(charQ>=qz.questions.length){renderCharResult();return;}
-  const q=qz.questions[charQ];
-  const letters=['A','B','C','D'];
-  document.getElementById('quizMain').innerHTML=`
+  const qz = QUIZZES.char;
+  if(charQ >= qz.questions.length){ renderCharResult(); return; }
+  const q = qz.questions[charQ];
+  const letters = ['A','B','C','D'];
+  document.getElementById('quizMain').innerHTML = `
     <div class="chq-wrap">
       <div style="font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px">
         Pergunta ${charQ+1} de ${qz.questions.length}
@@ -413,19 +443,21 @@ function renderCharQuiz(){
       </div>
     </div>`;
 }
+
 function answerChar(i){
-  charScores[i]=(charScores[i]||0)+1;
+  charScores[i] = (charScores[i] || 0) + 1;
   charQ++;
-  if(charQ>=QUIZZES.char.questions.length) renderCharResult();
+  if(charQ >= QUIZZES.char.questions.length) renderCharResult();
   else renderCharQuiz();
 }
+
 function renderCharResult(){
-  const maxIdx=charScores.indexOf(Math.max(...charScores));
-  const r=QUIZZES.char.results[maxIdx];
-  const img=CHAR_IMGS[r.name];
-  document.getElementById('quizMain').innerHTML=`
+  const maxIdx = charScores.indexOf(Math.max(...charScores));
+  const r = QUIZZES.char.results[maxIdx];
+  const img = CHAR_IMGS[r.name];
+  document.getElementById('quizMain').innerHTML = `
     <div class="chq-result show">
-      ${img?`<div class="chq-rphoto"><img src="${img}" alt="${r.name}"/></div>`:`<div class="chq-rav">${r.av}</div>`}
+      ${img ? `<div class="chq-rphoto"><img src="${img}" alt="${r.name}"/></div>` : `<div class="chq-rav">${r.av}</div>`}
       <div class="chq-rname">${r.name}</div>
       <div class="chq-rrole">${r.role}</div>
       <div class="chq-rdesc">${r.desc}</div>
@@ -436,8 +468,8 @@ function renderCharResult(){
 
 /* ── RANKING ── */
 function renderRanking(){
-  const lb=QUIZZES.ranking.leaderboard;
-  document.getElementById('quizMain').innerHTML=`
+  const lb = QUIZZES.ranking.leaderboard;
+  document.getElementById('quizMain').innerHTML = `
     <div class="qz-top" style="margin-bottom:16px">
       <div class="qz-top-row"><span class="qz-step">Placar Global</span><span class="qz-pts">🏆 Top Fãs</span></div>
     </div>
@@ -459,56 +491,58 @@ function renderRanking(){
 }
 
 /* ── CONTATO ── */
-function submitContact(){
-  const ok=document.getElementById('cOk');
-  if(ok){ok.style.display='block';setTimeout(()=>ok.style.display='none',4000);}
-}
+/* BUG CORRIGIDO: submitContact removida — elemento #cOk não existe no HTML */
 
 /* ── NAV ── */
 function navScroll(){
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
-  const sections=['home','serie','personagens','bastidores','diario','mapa','curiosidades','contato'];
-  let cur='home';
-  sections.forEach(s=>{
-    const el=document.getElementById(s);
-    if(el&&window.scrollY>=el.offsetTop-100) cur=s;
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+
+  /* BUG CORRIGIDO: timeline-exp adicionada às seções rastreadas */
+  const sections = ['home','serie','timeline-exp','personagens','bastidores','diario','mapa','curiosidades','contato'];
+  let cur = 'home';
+  sections.forEach(s => {
+    const el = document.getElementById(s);
+    if(el && window.scrollY >= el.offsetTop - 100) cur = s;
   });
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.classList.toggle('active',a.getAttribute('href')==='#'+cur||a.getAttribute('href')==='quizzes.html'&&cur==='quizzes');
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active',
+      a.getAttribute('href') === '#' + cur ||
+      (a.getAttribute('href') === 'quizzes.html' && cur === 'quizzes')
+    );
   });
 }
-function toggleMenu(){document.getElementById('mob-menu').classList.toggle('open');}
-function cm(){document.getElementById('mob-menu').classList.remove('open');}
+
+function toggleMenu(){ document.getElementById('mob-menu').classList.toggle('open'); }
+function cm(){ document.getElementById('mob-menu').classList.remove('open'); }
+
 function toggleTheme(){
-  const html=document.documentElement;
-  const isDark=html.getAttribute('data-theme')==='dark';
-  html.setAttribute('data-theme',isDark?'light':'dark');
-  document.getElementById('themeBtn').textContent=isDark?'Dark':'Light';
+  const html  = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? 'Dark' : 'Light';
 }
 
 window.addEventListener('load', initPage);
 
-/* ── CUSTOM CURSOR ── */
+/* ── CUSTOM CURSOR ──
+   BUG CORRIGIDO: cursor não é mais criado via JS —
+   o elemento já existe no HTML (<div class="cursor" id="cursor">).
+   Apenas movemos e alternamos a classe .active aqui.
+─────────────────────────────────────────────────── */
+const cursor = document.getElementById('cursor');
 
-const cursor = document.createElement("div");
-cursor.classList.add("custom-cursor");
-document.body.appendChild(cursor);
-
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+document.addEventListener('mousemove', e => {
+  if(!cursor) return;
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top  = e.clientY + 'px';
 });
 
-const hoverElements = document.querySelectorAll("a, button, .char-card, .card-item, .map-pin");
-
-hoverElements.forEach(el => {
-
-  el.addEventListener("mouseenter", () => {
-    cursor.classList.add("active");
+function bindCursorHover(){
+  document.querySelectorAll('a, button, .char-card, .card-item, .map-pin').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor && cursor.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('active'));
   });
+}
 
-  el.addEventListener("mouseleave", () => {
-    cursor.classList.remove("active");
-  });
-
-});
+/* Vincula após buildIndex popular o DOM */
+window.addEventListener('load', bindCursorHover);
