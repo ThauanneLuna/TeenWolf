@@ -932,7 +932,7 @@ function wrapText(ctx, text, x, y, maxW, lineH) {
     } else {
       line = test;
     }
-  });
+  }
   ctx.fillText(line, x, curY);
 }
 
@@ -941,7 +941,8 @@ function shareQuote(idx) {
   const text = `"${q.en}" — ${q.char}, Teen Wolf`;
   if (navigator.share) {
     navigator.share({ title: 'Teen Wolf Fãs', text }).catch(() => {});
-  } else {
+  } 
+  else {
     navigator.clipboard.writeText(text);
     showToast('Link copiado para compartilhar! 🐺');
   }
@@ -964,4 +965,4 @@ function initPage() {
 if (document.readyState === 'complete') {
   if (document.getElementById('tcinCards')) buildTcinTimeline();
   if (document.getElementById('quotesGrid')) buildQuotes();
-}
+};
