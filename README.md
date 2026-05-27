@@ -2,8 +2,6 @@
 
 <div align="center">
 
-<img src="cursorwolf.png" width="120"/>
-
 # 🌕 Teen Wolf Fãs
 
 ### _O lar dos sobrenaturais_
